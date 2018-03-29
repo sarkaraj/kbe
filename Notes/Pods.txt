@@ -1,3 +1,26 @@
+# To start minikube cluster. You need to start the minikube cluster before you can run 'kubectl' commands.
+# The following minikube commands specifies the vm-drive to be hyperv for Windows 10. disk size is 50G, RAM: 2G.
+
+minikube start --vm-driver "hyperv" --hyperv-virtual-switch "Minikube" --disk-size 50g --memory 2048 --v 9999 --alsologtostderr
+
+# After the minikube cluster starts, you get the following message
+
+# Kubectl is now configured to use the cluster.
+# Loading cached images from config file.
+
+# At this stage the kubernetes cluster is up and running
+#--------------------------------------------------------------------#
+
+
+#--------------------------------------------------------------------#
+#                          SECTION 1: PODS
+#--------------------------------------------------------------------#
+
 # To launch a pod using the container image mhausenblas/simpleservice:0.5.0 and exposing a HTTP API on port 9876, execute:
 
 kubectl run sise --image=mhausenblas/simpleservice:0.5.0 --port=9876
+
+# -- NOTE : The above command did not work
+
+# Running a pod
+kubectl create -f specs\pods\pod.yaml

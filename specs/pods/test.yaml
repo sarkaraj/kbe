@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: twocontainers
+spec:
+  containers:
+  - name: cassandra_service
+    image: cassandra:latest
+    ports:
+    - containerPort: 9042
+    - containerPort: 9160
